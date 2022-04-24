@@ -3,6 +3,9 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 import postRoutes from './routes/posts.js';
 
@@ -18,10 +21,10 @@ app.get('/', (req, res) =>{
   res.send('Hello world');
 });
 
-const CONNECTION_URL = 'mongodb+srv://chumit21:chumit21@cluster0.cgmf3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+// const CONNECTION_URL = 'mongodb+srv://chumit21:chumit21@cluster0.cgmf3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const PORT = process.env.PORT|| 5000;
 
-mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => app.listen(PORT, () => console.log(`Server Running on Port: http://localhost:${PORT}`)))
   .catch((error) => console.log(`${error} did not connect`));
 
