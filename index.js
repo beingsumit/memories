@@ -15,8 +15,8 @@ app.use(cors());
 app.use('/posts', postRoutes);
 
 app.get('/', (req, res) =>{
-  res.send('Hello')
-})
+  res.send('Hello');
+});
 
 const CONNECTION_URL = 'mongodb+srv://chumit21:chumit21@cluster0.cgmf3.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 const PORT = process.env.PORT|| 5000;
